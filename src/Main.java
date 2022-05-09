@@ -9,9 +9,7 @@ public class Main {
             GUI.showMainMenu();
             switch (scanner.nextLine()) {
                 case "1":
-                    GUI.listCars();
-                    GUI.listBuses();
-                    GUI.listMotorcycles();
+                    GUI.listVehicles();
                     break;
                 case "2":
                     System.out.println("Podaj numer rejestracyjny: ");

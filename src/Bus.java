@@ -1,56 +1,25 @@
-public class Bus {
-    private String brand;
-    private String model;
-    private double price;
-    private String plate;
-    private boolean rent;
+public class Bus extends Vehicle {
     private int seats;
 
     public Bus(String brand, String model, double price, String plate, int seats) {
-        this.brand = brand;
-        this.model = model;
-        this.price = price;
-        this.plate = plate;
-        this.rent = false;
+        super(brand, model, price, plate);
         this.seats = seats;
     }
 
     public Bus() {
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public String getPlate() {
-        return plate;
-    }
-
-    public void setPlate(String plate) {
-        this.plate = plate;
-    }
-
-    public boolean isRent() {
-        return rent;
-    }
-
-    public void setRent(boolean rent) {
-        this.rent = rent;
-    }
-
     public int getSeats() {
         return seats;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.toString())
+                .append(" Ilosc miejsc: ")
+                .append(this.seats);
+
+        return addRent(sb.toString());
     }
 }
