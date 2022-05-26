@@ -1,3 +1,7 @@
+package pl.camp.it.car.rent.model;
+
+import java.util.Scanner;
+
 public class Bus extends Vehicle {
     private int seats;
 
@@ -7,6 +11,11 @@ public class Bus extends Vehicle {
     }
 
     public Bus() {
+        super();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj ilosc siedzen:");
+        this.seats = Integer.parseInt(scanner.nextLine());
+        //this.seats = (Integer) "12";
     }
 
     public int getSeats() {

@@ -1,4 +1,8 @@
-public class Vehicle {
+package pl.camp.it.car.rent.model;
+
+import java.util.Scanner;
+
+public abstract class Vehicle {
     private String brand;
     private String model;
     private double price;
@@ -14,6 +18,16 @@ public class Vehicle {
     }
 
     public Vehicle() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj marke:");
+        this.brand = scanner.nextLine();
+        System.out.println("Podaj model:");
+        this.model = scanner.nextLine();
+        System.out.println("Podaj cene:");
+        this.price = Double.parseDouble(scanner.nextLine());
+        System.out.println("Podaj tablice:");
+        this.plate = scanner.nextLine();
+        this.rent = false;
     }
 
     public String getBrand() {

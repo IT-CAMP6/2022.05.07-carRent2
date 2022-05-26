@@ -1,3 +1,7 @@
+package pl.camp.it.car.rent.model;
+
+import java.util.Scanner;
+
 public class Motorcycle extends Vehicle {
     private int capacity;
     private int wheels;
@@ -9,6 +13,12 @@ public class Motorcycle extends Vehicle {
     }
 
     public Motorcycle() {
+        super();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj pojemnosc:");
+        this.capacity = Integer.parseInt(scanner.nextLine());
+        System.out.println("Podaj ilosc kol:");
+        this.wheels = Integer.parseInt(scanner.nextLine());
     }
 
     public int getCapacity() {
