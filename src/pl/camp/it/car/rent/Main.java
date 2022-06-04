@@ -1,5 +1,6 @@
 package pl.camp.it.car.rent;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import pl.camp.it.car.rent.databse.DataBase;
 import pl.camp.it.car.rent.gui.GUI;
 import pl.camp.it.car.rent.model.*;
@@ -8,7 +9,7 @@ import java.util.Scanner;
 
 public class Main {
     public static boolean isLoggedUserAdmin = false;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         DataBase db = DataBase.getInstance();
         Scanner scanner = new Scanner(System.in);
 
@@ -18,7 +19,7 @@ public class Main {
         String password = scanner.nextLine();
 
         User user = db.getUserByLogin(login);
-        if(user == null || !user.getPassword().equals(password)) {
+        if(user == null || !user.getPassword().equals(DigestUtils.md5Hex(DataBase.seed + password))) {
             return;
         }
         Main.isLoggedUserAdmin = user.getLogin().equals("admin");
@@ -38,6 +39,7 @@ public class Main {
                     }
                     break;
                 case "3":
+                    db.save();
                     System.exit(0);
                     break;
                 case "4":

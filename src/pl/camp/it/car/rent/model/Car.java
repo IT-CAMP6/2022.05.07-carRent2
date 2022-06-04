@@ -13,4 +13,13 @@ public class Car extends Vehicle {
     public String toString() {
         return addRent(super.toString());
     }
+
+    @Override
+    public String convertToFileFormat() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Car")
+                .append(";")
+                .append(super.convertToFileFormat());
+        return stringBuilder.toString();
+    }
 }

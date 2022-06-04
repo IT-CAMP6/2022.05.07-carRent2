@@ -40,4 +40,17 @@ public class Motorcycle extends Vehicle {
 
         return addRent(sb.toString());
     }
+
+    @Override
+    public String convertToFileFormat() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Motorcycle")
+                .append(";")
+                .append(super.convertToFileFormat())
+                .append(";")
+                .append(this.capacity)
+                .append(";")
+                .append(this.wheels);
+        return stringBuilder.toString();
+    }
 }

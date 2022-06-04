@@ -23,4 +23,15 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String convertToFileFormat() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("User")
+                .append(";")
+                .append(this.login)
+                .append(";")
+                .append(this.password);
+
+        return stringBuilder.toString();
+    }
 }

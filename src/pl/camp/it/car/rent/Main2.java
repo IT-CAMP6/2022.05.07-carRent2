@@ -1,5 +1,7 @@
 package pl.camp.it.car.rent;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import java.util.*;
 
 public class Main2 {
@@ -30,7 +32,7 @@ public class Main2 {
         return i == 0;
     }*/
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Collection<String> list = new ArrayList<>();
 
         if(list instanceof List) {
@@ -51,5 +53,17 @@ public class Main2 {
 
     static void c(List<String> lista) {
 
+    }*/
+
+    public static void main(String[] args) {
+        String imie = "Mateusz";
+
+        String zahashowaneImie = DigestUtils.md5Hex(imie);
+
+        System.out.println(zahashowaneImie);
+
+        String imie2 = "Mateusz2";
+
+        System.out.println(DigestUtils.md5Hex(imie2));
     }
 }

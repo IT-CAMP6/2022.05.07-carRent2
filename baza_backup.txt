@@ -1,0 +1,11 @@
+Car;BMW;3;500.0;KR11;false
+Car;Audi;A3;400.0;KR22;false
+Car;Toyota;Corolla;300.0;KR33;false
+Car;Kia;Ceed;200.0;KR44;false
+Bus;Mercedes;E-1000;900.0;KB11;false;50
+Bus;Solaris;Electric;1100.0;KB22;false;45
+Motorcycle;Suzuki;1000;700.0;KM11;false;500;2
+Motorcycle;BMW;E2000;800.0;KM22;false;600;3
+User;tomasz;58491b4983e77817621bc29e56184353
+User;admin;2cbec3afa7a5b70ceb53057c40a18ee5
+User;janusz;ad4198661365d5a68261b50e9f55caef

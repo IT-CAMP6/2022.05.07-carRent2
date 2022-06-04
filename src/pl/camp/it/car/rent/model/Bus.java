@@ -31,4 +31,16 @@ public class Bus extends Vehicle {
 
         return addRent(sb.toString());
     }
+
+    @Override
+    public String convertToFileFormat() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Bus")
+                .append(";")
+                .append(super.convertToFileFormat())
+                .append(";")
+                .append(this.seats);
+
+        return stringBuilder.toString();
+    }
 }

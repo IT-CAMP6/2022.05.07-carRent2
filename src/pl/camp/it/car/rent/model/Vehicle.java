@@ -83,4 +83,18 @@ public abstract class Vehicle {
             return x + " Zajety : Nie";
         }
     }
+
+    public String convertToFileFormat() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(this.getBrand())
+                .append(";")
+                .append(this.getModel())
+                .append(";")
+                .append(this.getPrice())
+                .append(";")
+                .append(this.getPlate())
+                .append(";")
+                .append(this.isRent());
+        return stringBuilder.toString();
+    }
 }
