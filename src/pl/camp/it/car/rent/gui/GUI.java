@@ -1,6 +1,7 @@
 package pl.camp.it.car.rent.gui;
 
 import pl.camp.it.car.rent.Main;
+import pl.camp.it.car.rent.databse.DB;
 import pl.camp.it.car.rent.databse.DataBase;
 import pl.camp.it.car.rent.model.Vehicle;
 
@@ -13,7 +14,8 @@ public class GUI {
             System.out.println("4. Add vehicle");
     }
     public static void listVehicles() {
-        for (Vehicle vehicle : DataBase.getInstance().getVehicles()) {
+        DB database = DataBase.getInstance();
+        for (Vehicle vehicle : database.getVehicles()) {
             System.out.println(vehicle.toString());
         }
     }

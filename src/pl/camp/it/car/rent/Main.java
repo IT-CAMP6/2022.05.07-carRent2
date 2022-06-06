@@ -1,6 +1,7 @@
 package pl.camp.it.car.rent;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import pl.camp.it.car.rent.databse.DB;
 import pl.camp.it.car.rent.databse.DataBase;
 import pl.camp.it.car.rent.gui.GUI;
 import pl.camp.it.car.rent.model.*;
@@ -9,8 +10,8 @@ import java.util.Scanner;
 
 public class Main {
     public static boolean isLoggedUserAdmin = false;
-    public static void main(String[] args) throws Exception {
-        DataBase db = DataBase.getInstance();
+    public static void main(String[] args) {
+        DB db = DataBase.getInstance();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Podaj login:");

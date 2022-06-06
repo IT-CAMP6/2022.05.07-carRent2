@@ -3,6 +3,7 @@ package pl.camp.it.car.rent.model;
 public class User {
     private String login;
     private String password;
+    public Privilages privilages;
 
     public User(String login, String password) {
         this.login = login;

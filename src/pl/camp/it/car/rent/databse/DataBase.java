@@ -4,12 +4,13 @@ import org.apache.commons.codec.digest.DigestUtils;
 import pl.camp.it.car.rent.model.*;
 
 import java.io.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DataBase {
+public class DataBase implements DB {
     private final List<Vehicle> vehicles = new ArrayList<>();
     private final Map<String, User> users = new HashMap<>();
 
@@ -63,9 +64,16 @@ public class DataBase {
                 }
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            try {
+                BufferedWriter writer = new BufferedWriter(new FileWriter("baza.txt"));
+                writer.close();
+            } catch (IOException e1) {
+                System.out.println("NIe można utworzyć bazy danych !!!");
+                System.exit(0);
+            }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Nie udało się wczytać danych !!");
+            System.exit(0);
         }
     }
 
@@ -100,20 +108,41 @@ public class DataBase {
         return instance;
     }
 
-    public void save() throws Exception {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("baza.txt"));
+    public void save() {
+        BufferedWriter writer = null;
+        try {
+            writer = new BufferedWriter(new FileWriter("baza.txt"));
+        } catch (IOException e) {
+            System.out.println("NIe mozna zapisac danych");
+            System.exit(0);
+        }
+
         for (Vehicle vehicle : this.vehicles) {
-            writer.write(vehicle.convertToFileFormat());
-            writer.newLine();
+            try {
+                writer.write(vehicle.convertToFileFormat());
+                writer.newLine();
+            } catch (IOException e) {
+                System.out.println("Pojazd : " + vehicle.toString() + " nie zapisanych do bazy !!");
+            }
             //System.out.println(vehicle.convertToFileFormat());
         }
 
         for (User user : this.users.values()) {
-            writer.write(user.convertToFileFormat());
-            writer.newLine();
+            try {
+                writer.write(user.convertToFileFormat());
+                writer.newLine();
+            } catch (IOException e) {
+                System.out.println("Nie udalo sie zapisac usera !!");
+            }
+
             //System.out.println(user.convertToFileFormat());
         }
 
-        writer.close();
+        try {
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

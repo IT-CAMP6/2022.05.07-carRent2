@@ -1,6 +1,8 @@
 package pl.camp.it.car.rent;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import pl.camp.it.car.rent.model.Privilages;
+import pl.camp.it.car.rent.model.User;
 
 import java.util.*;
 
@@ -55,7 +57,7 @@ public class Main2 {
 
     }*/
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         String imie = "Mateusz";
 
         String zahashowaneImie = DigestUtils.md5Hex(imie);
@@ -65,5 +67,14 @@ public class Main2 {
         String imie2 = "Mateusz2";
 
         System.out.println(DigestUtils.md5Hex(imie2));
+    }*/
+
+    public static void main(String[] args) {
+        User user = new User();
+        user.privilages = Privilages.USER;
+
+        if(user.privilages == Privilages.USER) {
+
+        }
     }
 }

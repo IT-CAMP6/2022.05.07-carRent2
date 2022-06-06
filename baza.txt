@@ -1,5 +1,5 @@
 Car;BMW;3;500.0;KR11;true
-Car;Audi;A3;400.0;KR22;false
+Car;Audi;A3;400.0;KR22;true
 Car;Toyota;Corolla;300.0;KR33;false
 Car;Kia;Ceed;200.0;KR44;false
 Bus;Mercedes;E-1000;900.0;KB11;false;50
